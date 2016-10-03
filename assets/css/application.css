@@ -1,0 +1,80 @@
+body {
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+}
+
+
+/* Address Field */
+.address-field {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+
+  background-image: url('https://i.ytimg.com/vi/QTZQ9bta31w/maxresdefault.jpg');
+  background-position: center;
+
+  color: white;
+}
+
+.address-field input {
+  padding: 10px 20px;
+  width: 50vw;
+}
+
+/* Loading */
+
+.spinner-container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.spinner {
+  width: 60px;
+  height: 60px;
+  background-color: #333;
+
+  margin: 100px auto;
+  -webkit-animation: sk-rotateplane 1.2s infinite ease-in-out;
+  animation: sk-rotateplane 1.2s infinite ease-in-out;
+}
+
+@-webkit-keyframes sk-rotateplane {
+  0% { -webkit-transform: perspective(120px) }
+  50% { -webkit-transform: perspective(120px) rotateY(180deg) }
+  100% { -webkit-transform: perspective(120px) rotateY(180deg)  rotateX(180deg) }
+}
+
+@keyframes sk-rotateplane {
+  0% {
+    transform: perspective(120px) rotateX(0deg) rotateY(0deg);
+    -webkit-transform: perspective(120px) rotateX(0deg) rotateY(0deg)
+  } 50% {
+    transform: perspective(120px) rotateX(-180.1deg) rotateY(0deg);
+    -webkit-transform: perspective(120px) rotateX(-180.1deg) rotateY(0deg)
+  } 100% {
+    transform: perspective(120px) rotateX(-180deg) rotateY(-179.9deg);
+    -webkit-transform: perspective(120px) rotateX(-180deg) rotateY(-179.9deg);
+  }
+}
+
+/* Election Page */
+
+.image {
+  width: 100px;
+  height:100px;
+  border-radius: 50%;
+  overflow: hidden;
+
+  background-image: url('https://ans.latech.edu/documents/watermark/default-profile.png');
+  background-position: center;
+  background-size: cover;
+}
+
+img {
+  width: 100%;
+}

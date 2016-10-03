@@ -1,9 +1,9 @@
 import { RECEIVE_LOCAL_ELECTIONS,
          RECEIVE_NATIONAL_ELECTIONS,
-         RECEIVE_CANIDATES,
+         RECEIVE_CANDIDATES,
          ELECTION_ERROR
        } from '../actions/election_actions';
-import merge from 'lodash/merge';
+import { merge, clone } from 'lodash';
 
 let preloadedState = {
   localElections: {},
@@ -19,14 +19,17 @@ const ElectionsReducer = (state = preloadedState, action) => {
     case RECEIVE_NATIONAL_ELECTIONS:
       let newNational = {nationalElections: action.elections.Results};
       return merge({}, state, newNational);
-    case RECEIVE_CANIDATES:
-      debugger
-      let newCandidates = merge({},
-                                  state.candidates,
-                                  {[action.id]: action.candidates});
-      let newState = merge({}, state, newCandidates);
-      debugger;
-      return merge({}, state, newState);
+    case RECEIVE_CANDIDATES:
+      let newCandidates = clone(state.candidates);
+      action.candidates.Results.forEach(candidate => {
+        let office = candidate.Offices[0];
+        if (office.IsElected === "1") {
+          let race = newCandidates[office.Name.toLowerCase()] || [];
+          race.push(candidate);
+          newCandidates[office.Name.toLowerCase()] = race;
+        }
+      });
+      return merge({}, state, {candidates: newCandidates});
     case ELECTION_ERROR:
       alert(action.error);
       break;

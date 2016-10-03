@@ -44,13 +44,25 @@ const getDate = () => {
 };
 
 
-export const fetchCanidates = function(id, success) {
+export const fetchCandidates = function(id, success) {
   let nextElection = '2016-11-08';
   let query = 'https://api.ballotpedia.org/v1/api.php';
       query += `?Key=035c0919b89a9a1d7e8c8a553606118e`;
       query += `&DataSet=People`;
       query += `&Office.District.ID=${id}`;
       query += `&Office.DateNextElection=${nextElection}`;
+
+  $.ajax({
+    method: 'GET',
+    url: query,
+    success
+  });
+};
+
+export const fetchPresidentAndVice = function(success) {
+  let query = 'https://api.ballotpedia.org/v1/api.php';
+      query += `?Key=035c0919b89a9a1d7e8c8a553606118e`;
+      query += `&DataSet=People&ID=21491%7C15180%7C19019%7C25767%7C20080%7C40876%7C58614%7C94802%7C55120%7C470`;
 
   $.ajax({
     method: 'GET',

@@ -24,7 +24,8 @@ class Address extends React.Component {
 
   render() {
     return(
-      <div>
+      <div className='address-field'>
+        <h1>Enter Address</h1>
         <form onSubmit={this.handleSubmit}>
           <input type='text'
                  placeholder='Enter Address...'

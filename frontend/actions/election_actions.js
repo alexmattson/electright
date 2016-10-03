@@ -2,8 +2,9 @@ export const REQUEST_LOCAL_ELECTIONS = "REQUEST_LOCAL_ELECTIONS";
 export const REQUEST_NATIONAL_ELECTIONS = "REQUEST_NATIONAL_ELECTIONS";
 export const RECEIVE_LOCAL_ELECTIONS = "RECEIVE_LOCAL_ELECTIONS";
 export const RECEIVE_NATIONAL_ELECTIONS = "RECEIVE_NATIONAL_ELECTIONS";
-export const REQUEST_CANIDATES = "REQUEST_CANIDATES";
-export const RECEIVE_CANIDATES = "RECEIVE_CANIDATES";
+export const REQUEST_CANDIDATES = "REQUEST_CANDIDATES";
+export const REQUEST_PRESIDENT_AND_VICE = "REQUEST_PRESIDENT_AND_VICE";
+export const RECEIVE_CANDIDATES = "RECEIVE_CANDIDATES";
 
 /////////////////
 export const REQUEST_ELECTIONS = "REQUEST_ELECTIONS";
@@ -37,14 +38,18 @@ export const receiveNationalElections = elections => ({
   elections
 });
 
-export const requestCanidates = id => ({
-  type: REQUEST_CANIDATES,
+export const requestCandidates = id => ({
+  type: REQUEST_CANDIDATES,
   id
 });
 
-export const receiveCanidates = (canidates, id) => ({
-  type: RECEIVE_CANIDATES,
-  canidates,
+export const requestPresidentandVice = () => ({
+  type: REQUEST_PRESIDENT_AND_VICE
+});
+
+export const receiveCandidates = (candidates, id) => ({
+  type: RECEIVE_CANDIDATES,
+  candidates,
   id
 });
 

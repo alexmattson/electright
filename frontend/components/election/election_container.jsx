@@ -3,7 +3,8 @@ import Election from './election';
 // Actions
 import { requestLocalElections,
          requestNationalElections,
-         requestCanidates
+         requestCandidates,
+         requestPresidentandVice
        } from '../../actions/election_actions';
 
 
@@ -15,7 +16,8 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
   requestLocalElections: address => dispatch(requestLocalElections(address)),
   requestNationalElections: address => dispatch(requestNationalElections(address)),
-  requestCanidates: id => dispatch(requestCanidates(id))
+  requestCandidates: id => dispatch(requestCandidates(id)),
+  requestPresidentandVice: () => dispatch(requestPresidentandVice())
 });
 
 export default connect(
